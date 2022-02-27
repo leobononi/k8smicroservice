@@ -1,5 +1,4 @@
 using AutoMapper;
-using CommandsService.Dto;
 using CommandsService.Dtos;
 using CommandsService.Models;
 

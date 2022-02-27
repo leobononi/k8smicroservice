@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using AutoMapper;
 using CommandsService.Data;
-using CommandsService.Dto;
 using CommandsService.Dtos;
 using CommandsService.Models;
 using Microsoft.AspNetCore.Mvc;

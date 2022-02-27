@@ -1,4 +1,4 @@
-namespace CommandsService.Dto
+namespace CommandsService.Dtos
 {
     public class CommandReadDto
     {
