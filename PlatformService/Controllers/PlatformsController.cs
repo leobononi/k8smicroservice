@@ -83,6 +83,7 @@ namespace PlatformService.Controllers
             //Send Async Message
             try
             {
+                Console.WriteLine("--> Sending async message");
                 var platformPublishedDto = _mapper.Map<PlatformPublishedDto>(platformReadDto);
                 platformPublishedDto.Event = "Platform_Published";
                 _messageBusClient.PublishNewPlatform(platformPublishedDto);

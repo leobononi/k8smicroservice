@@ -9,14 +9,11 @@ namespace PlatformService.AsyncDataService
 {
     public class MessageBusClient : IMessageBusClient
     {
-        private readonly IConfiguration _config;
         private readonly IConnection _connection;
         private readonly IModel _channel;
 
         public MessageBusClient(IConfiguration config, IRabbitMQConnectionFactory connFactory)
         {
-            _config = config;
-
             try
             {
                 _connection = connFactory.CreateConnection();

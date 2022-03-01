@@ -60,6 +60,7 @@ namespace PlatformService
             });
 
             Console.WriteLine($"--> COmmandService endpoint: {Configuration["CommandService"]}");
+            Console.WriteLine($"--> RabbitMQ: {Configuration["RabbitMQHost"]}:{Configuration["RabbitMQPort"]}");
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

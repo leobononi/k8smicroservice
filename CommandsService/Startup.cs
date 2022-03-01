@@ -1,5 +1,7 @@
 using System;
+using CommandsService.AsyncDataServices;
 using CommandsService.Data;
+using CommandsService.EventProcessing;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +26,12 @@ namespace CommandsService
             services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("InMem"));
             services.AddScoped<ICommandRepo, CommandRepo>();
             services.AddControllers();
+
+            services.AddSingleton<IEventProcessor, EventProcessor>();
+            services.AddSingleton<IRabbitMQConnectionFactory, RabbitMQConnectionFactory>();
+            services.AddSingleton<IRabbitMQEventConsumer, RabbitMQEventConsumer>();
+            services.AddHostedService<MessageBusSubscriber>();
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSwaggerGen(c =>
             {

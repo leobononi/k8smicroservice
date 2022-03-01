@@ -63,7 +63,7 @@ namespace CommandsService.Controllers
             _reposittory.CreateCommand(platformId, command);
             _reposittory.SaveChanges();
 
-            var commandReadDto = _mapper.Map<CommandReadDto>(commandCreateDto);
+            var commandReadDto = _mapper.Map<CommandReadDto>(command);
 
             return CreatedAtRoute(nameof(GetCommandForPlatform),
                 new {platformId = platformId, commandId = commandReadDto.Id}, 
